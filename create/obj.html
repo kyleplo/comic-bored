@@ -1,0 +1,29 @@
+<!DOCTYPE html><html>
+<head><title>ComicBored Object Selector</title><link rel="stylesheet" href="../style.css"></head>
+<body>
+<h3>Select an object</h3>
+<img src="../assets/objects/table.svg"> 
+<img src="../assets/objects/chair-left.svg"> 
+<img src="../assets/objects/chair-right.svg"> 
+<img src="../assets/objects/armchair.svg"> 
+<img src="../assets/objects/couch.svg"> 
+<img src="../assets/objects/double-chair.svg"> 
+<img src="../assets/objects/door.svg"> 
+<img src="../assets/objects/window.svg">
+<button>Add asset!</button>
+<button onclick="location.reload();">Start Over</button>
+<script>window.addEventListener("load",function (){
+var img = document.getElementsByTagName("img");
+var obj = "";
+for(var i = 0;i < img.length;i++){
+img[i].addEventListener("click",function (e){
+obj = e.target.src;
+for(var i = 0;i < img.length;i++){
+img[i].style.border = "none";
+};
+e.target.style.border = "dotted 5px blue";
+})
+}})
+</script>
+</body>
+</html>
