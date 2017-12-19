@@ -19,7 +19,7 @@
 <button onclick="location.reload();">Start Over</button>
 <script>
   function upload(){
-    var svg = "<svg width='300' height='300'>";
+    var svg = "<svg version='1.1' width='300' height='300' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>";
     var sh = (300 * document.getElementById('sky-p').value) / 100;
     svg += "<rect width='300' height='" + sh + "' style='fill:" + document.getElementById('sky').value + "' />";
     var gh = (300 * document.getElementById('ground-p').value) / 100;
