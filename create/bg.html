@@ -20,12 +20,12 @@
 <script>
   function upload(){
     var svg = "<svg width='300' height='300'>";
-    var sh = (300 * document.getElementById('sky-p')) / 100;
-    svg += "<rect width='300' height='" + sh + "' style='fill:" + document.getElementById('sky') + "' />";
-    var gh = (300 * document.getElementById('ground-p')) / 100;
-    svg += "<rect width='300' y='" + sh + "' height='" + gh + "' style='fill:" + document.getElementById('ground') + "' />";
+    var sh = (300 * document.getElementById('sky-p').value) / 100;
+    svg += "<rect width='300' height='" + sh + "' style='fill:" + document.getElementById('sky').value + "' />";
+    var gh = (300 * document.getElementById('ground-p').value) / 100;
+    svg += "<rect width='300' y='" + sh + "' height='" + gh + "' style='fill:" + document.getElementById('ground').value + "' />";
     var fh = 100 - (sh + gh);
-    svg += "<rect width='300' y='" + (sh + gh) + "' height='" + fh + "' style='fill:" + document.getElementById('floor') + "' />";
+    svg += "<rect width='300' y='" + (sh + gh) + "' height='" + fh + "' style='fill:" + document.getElementById('floor').value + "' />";
     svg += "</svg>";
     svg = btoa(svg);
     window.parent.postMessage("bg|data:image/svg+xml;base64,"+svg+"|none", "https://kyleplo.github.io");
