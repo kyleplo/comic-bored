@@ -10,9 +10,11 @@
 <img src="../assets/objects/double-chair.svg"> 
 <img src="../assets/objects/door.svg"> 
 <img src="../assets/objects/window.svg">
-<button onclick="window.opener.postMessage("obj|"+img.src+"|none", "https://kyleplo.github.io");">Add asset!</button>
+<button onclick="window.opener.postMessage("obj|"+obj+"|none", "https://kyleplo.github.io");">Add asset!</button>
 <button onclick="location.reload();">Start Over</button>
-<script>window.addEventListener("load",function (){
+<script>
+  var obj;
+  window.addEventListener("load",function (){
 var img = document.getElementsByTagName("img");
 var obj = "";
 for(var i = 0;i < img.length;i++){
