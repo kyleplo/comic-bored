@@ -41,7 +41,7 @@
 <script>
 window.addEventListener("load",function (){
 if(localStorage.assets){
-var assets = localStorage.assets.split(";");
+var assets = localStorage.assets.split("^");
 for(var i = 0;i < assets.length;i++){
 document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "'><br>";
 }}else{localStorage.assets = ""}
@@ -49,7 +49,7 @@ document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|
 window.addEventListener("message",function (e){
 document.getElementById('add').setAttribute("hidden","hidden");
 document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "'><br>";
-if(localStorage.assets.length > 0){localStorage.assets += ";" + e.data}else{localStorage.assets += e.data};
+if(localStorage.assets.length > 0){localStorage.assets += "^" + e.data}else{localStorage.assets += e.data};
 });
 </script>
 </body>
