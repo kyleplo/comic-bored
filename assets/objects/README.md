@@ -1,0 +1,3 @@
+See [this page](https://github.com/kyleplo/comic-bored/blob/master/assets/README.md)
+
+Why can't you upload and create folders at the same time on github...
