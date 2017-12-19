@@ -48,7 +48,7 @@ document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|
 });
 window.addEventListener("message",function (e){
 document.getElementById('add').setAttribute("hidden","hidden");
-document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + data.split("|")[2] + "'><br>";
+document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "'><br>";
 localStorage.assets += ";" + e.data;
 });
 </script>
