@@ -1,0 +1,51 @@
+<!DOCTYPE html><html>
+<head><title>ComicBored</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<div style="position:fixed;top:0px;left:0px;width:73%;height:177px;overflow-y:scroll;border-bottom:solid 1px black">
+<div id="person" hidden>
+<h3>Person</h3>
+<p>Posture: <select id="posture"><option value="stand">standing</option><option value="sit">sitting</option></select></p>
+<p>Speech: <input type="text" id="speech" placeholder="What should I say?"></p>
+<p>Thought: <input type="text" id="thought" placeholder="What am I thinking?"></p>
+<p><b>Note:</b> Only use speech OR thought at once</p>
+<p>Speech/Thought Position: <select id="position"><option value="right">right</option><option value="left">left</option></select></p>
+<p>Expression: <select id="expression"><option value="happy">happy :-)</option><option value="normal">normal :-|</option><option value="sad">sad :-(</option><option value="toothy">toothy smile :-D</option><option value="angry">angry #-(</option><option value="sleep">sleep ;-|</option></select></p>
+</div>
+<div id="object" hidden>
+<h3>Object</h3>
+<p>There aren't any object properties... <i>(yet)</i></p>
+</div>
+<div id="background" hidden>
+<h3>Background</h3>
+<p>Time of Day: <select id="time"><option value="day">day</option><option value="morning">morning/evening</option><option value="night">night</option></select></p>
+<p>Sight: <select id="sight"><option value="normal">normal</option><option value="fog">foggy</option><option value="bw">colorblind (b&w)</option><option value="blur">blury (needs glasses)</option><option value="teleport">teleport</option></select></p>
+<p>Caption: <input type="text" id="caption" placeholder="What is going on?"></p>
+</div>
+<div id="comic">
+<h3>Comic</h3>
+<p>Title: <input type="text" id="title" placeholder="Name your comic!!"></p>
+<p>Width (in panels): <select id="width"><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select></p>
+<p>Height (in panels): <select id="width"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></p>
+</div>
+</div>
+<div style="position:fixed;top:0px;right:0px;width:25%;border-left:solid 1px black;height:100%">
+<h3>My Assets</h3>
+<a href="./create/person.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create person</button></a>
+<a href="./create/bg.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create background</button></a>
+<a href="./create/obj.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Add object</button></a>
+<a href="./create/upload.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Upload asset</button></a>
+<ul id="assets">
+</ul></div>
+<iframe id="add" name="addAsset" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 190px);border:none" hidden></iframe>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
+<script>
+window.addEventListener("load",function (){
+if(localStorage.assets){
+var assets = localStorage.assets.split(";");
+for(var i = 0;i < assets.length;i++){
+document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "'><br>";
+}}else{localStorage.assets = ""}
+})
+</script>
+</body>
+</html>
