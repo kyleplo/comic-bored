@@ -24,7 +24,7 @@
     svg += "<rect width='300' height='" + sh + "' style='fill:" + document.getElementById('sky').value + "' />";
     var gh = (300 * document.getElementById('ground-p').value) / 100;
     svg += "<rect width='300' y='" + sh + "' height='" + gh + "' style='fill:" + document.getElementById('ground').value + "' />";
-    var fh = 100 - (sh + gh);
+    var fh = 300 - (sh + gh);
     svg += "<rect width='300' y='" + (sh + gh) + "' height='" + fh + "' style='fill:" + document.getElementById('floor').value + "' />";
     svg += "</svg>";
     svg = btoa(svg);
