@@ -43,9 +43,14 @@ window.addEventListener("load",function (){
 if(localStorage.assets){
 var assets = localStorage.assets.split(";");
 for(var i = 0;i < assets.length;i++){
-document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "'><br>";
+document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[1] + "' data-face='" + assets[i].split("|")[2] + "'><br>";
 }}else{localStorage.assets = ""}
-})
+});
+window.addEventListner("message",function (e){
+document.getElementById('add').setAttribute("hidden","hidden");
+document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + data.split("|")[2] + "'><br>";
+localStorage.assets += ";" + e.data;
+});
 </script>
 </body>
 </html>
