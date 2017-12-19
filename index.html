@@ -43,7 +43,7 @@ window.addEventListener("load",function (){
 if(localStorage.assets){
 var assets = localStorage.assets.split(";");
 for(var i = 0;i < assets.length;i++){
-document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[1] + "' data-face='" + assets[i].split("|")[2] + "'><br>";
+document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "'><br>";
 }}else{localStorage.assets = ""}
 });
 window.addEventListener("message",function (e){
