@@ -27,7 +27,7 @@
     var fh = 100 - (sh + gh);
     svg += "<rect width='300' y='" + (sh + gh) + "' height='" + fh + "' style='fill:" + document.getElementById('floor') + "' />";
     svg += "</svg>";
-    window.opener.postMessage("bg|"+svg+"|none", "https://kyleplo.github.io");
+    window.parent.postMessage("bg|"+svg+"|none", "https://kyleplo.github.io");
   }
   </script>
 </body>
