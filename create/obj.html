@@ -13,10 +13,9 @@
 <button onclick="window.parent.postMessage('obj|'+obj+'|none', 'https://kyleplo.github.io');">Add asset!</button>
 <button onclick="location.reload();">Start Over</button>
 <script>
-  var obj;
+  var obj = "";
   window.addEventListener("load",function (){
 var img = document.getElementsByTagName("img");
-var obj = "";
 for(var i = 0;i < img.length;i++){
 img[i].addEventListener("click",function (e){
 obj = e.target.src;
