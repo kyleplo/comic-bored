@@ -15,7 +15,20 @@
 <div style="width:100%" id="pr-ground">Ground/Wall</div>
 <div style="width:100%;height:300px" id="pr-floor">Floor</div>
 </div>
-<button>Add asset!</button>
+<button onclick="upload();">Add asset!</button>
 <button onclick="location.reload();">Start Over</button>
+<script>
+  function upload(){
+    var svg = "data:image/xml+svg,<svg width='300' height='300'>";
+    var sh = (300 * document.getElementById('sky-p')) / 100;
+    svg += "<rect width='300' height='" + sh + "' style='fill:" + document.getElementById('sky') + "' />";
+    var gh = (300 * document.getElementById('ground-p')) / 100;
+    svg += "<rect width='300' y='" + sh + "' height='" + gh + "' style='fill:" + document.getElementById('ground') + "' />";
+    var fh = 100 - (sh + gh);
+    svg += "<rect width='300' y='" + (sh + gh) + "' height='" + fh + "' style='fill:" + document.getElementById('floor') + "' />";
+    svg += "</svg>";
+    window.opener.postMessage("bg|"+svg+"|none", "https://kyleplo.github.io");
+  }
+  </script>
 </body>
 </html>
