@@ -19,7 +19,7 @@
     var hairSvg = trimSvg(r);
         fetch("../assets/body/" + document.getElementById('height').value + ".svg").then(function (r){return r.text()}).then(function (r){
     var bodySvg = trimSvg(r);
-        fetch("../assets/face/happy.svg").then(function (r){return r.text()}).then(function (r){
+        fetch("../assets/faces/happy.svg").then(function (r){return r.text()}).then(function (r){
     var faceSvg = trimSvg(r);
     console.log("SVGs loaded!");
     bodySvg = bodySvg.replace("none",document.getElementById("skin-color").value);
