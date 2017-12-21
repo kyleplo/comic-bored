@@ -42,7 +42,7 @@ if(localStorage.assets){
 var assets = localStorage.assets.split("^");
 for(var i = 0;i < assets.length;i++){
 document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "' onclick='assetClick(event)'>";
-  console.log("Event added!");
+  console.log("Event added!");updateInteract();
 };
 }else{localStorage.assets = ""}
 });
@@ -92,7 +92,7 @@ comic.push({x: 0,y: 0,src: e.target.src,type: e.target.getAttribute("data-type")
 updateInteract();
 }
   function updateInteract(){
-  interact(document.getElementsByClassName('editImg')).draggable({
+  interact('.editImg').draggable({
 restrict: {
       restriction: "parent",
       endOnly: true,
