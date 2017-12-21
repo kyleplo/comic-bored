@@ -4,8 +4,7 @@
 <div style="position:fixed;top:0px;left:0px;width:73%;height:177px;overflow-y:scroll;border-bottom:solid 1px black">
 <div id="person" hidden>
 <h3>Person</h3>
-<p>Speech: <input type="text" id="speech" placeholder="What should I say?" onchange="comic[selected].caption = this.value;addCaption('person',this.value)"></p>
-<p>Expression: <select id="expression" onchange="comic[selected].face = this.value"><option value="happy">happy :-)</option><option value="normal">normal :-|</option><option value="sad">sad :-(</option><option value="toothy">toothy smile :-D</option><option value="angry">angry #-(</option><option value="sleep">sleep ;-|</option></select></p>
+<p>There aren't any object properties... <i>(yet)</i></p>
 </div>
 <div id="obj" hidden>
 <h3>Object</h3>
@@ -13,7 +12,11 @@
 </div>
 <div id="bg" hidden>
 <h3>Background</h3>
-<p>Caption: <input type="text" id="caption" placeholder="What is going on?" onchange="comic[selected].caption = this.value;addCaption('bg',this.value)"></p>
+<p>There aren't any object properties... <i>(yet)</i></p>
+</div>
+<div id="caption" hidden>
+<h3>Caption</h3>
+<p>Text: <input type="text" onchange="document.getElementsByClassName('editImg')[selected].innerHTML = this.value;comic[selected].caption = this.value"></p>
 </div>
 <div id="comic">
 <h3>Comic</h3>
@@ -28,6 +31,7 @@
 <a href="./create/bg.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create background</button></a>
 <a href="./create/obj.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Add object</button></a>
 <a href="./create/upload.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Upload asset</button></a>
+  <button onclick="document.getElementById('editor').innerHTML += '<p class=editImg>Caption text (edit in properties)...</p>';comic.push(x:0,y:0,type:'caption',caption:'');">Add caption/speech box</button>
   <button onclick="localStorage.assets = '';document.getElementById('assets').innerHTML = '';">Delete All Assets</button>
 <div id="assets">
 </div></div>
@@ -69,6 +73,7 @@ document.getElementById('person').setAttribute("hidden","hidden");
 document.getElementById('obj').setAttribute("hidden","hidden");
 document.getElementById('bg').setAttribute("hidden","hidden");
 document.getElementById('comic').setAttribute("hidden","hidden");
+  document.getElementById('caption').setAttribute("hidden","hidden");
 document.getElementById(menu).removeAttribute("hidden");
 }
   function dragMoveListener (event) {
