@@ -1,5 +1,5 @@
 html, body {font-family:Arial}
 div {background-color:white;padding:5px}
-button, select {outline:none;width:250px;cursor:pointer;height:42px;background: orangered;border: none;margin: 5px;}
+button, select {outline:none;width:250px;cursor:pointer;height:42px;background: orangered;border: none;margin: 5px;color:white}
 input {outline:none;width:250px;height:42px;border: none;margin: 5px;}
 button:hover {background: red}
