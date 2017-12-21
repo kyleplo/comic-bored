@@ -48,7 +48,7 @@ document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|
 });
 window.addEventListener("message",function (e){
 document.getElementById('add').setAttribute("hidden","hidden");
-document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "' onclick='assetClick()'>";
+document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "' onclick='assetClick(event)'>";
 if(localStorage.assets.length > 0){localStorage.assets += "^" + e.data}else{localStorage.assets += e.data};
 });
 function getGridSvg(w,h){
