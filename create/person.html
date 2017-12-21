@@ -8,8 +8,38 @@
 <p>Shirt color: <select id="shirt-color"><option value="#ff0000" style="background-color:#ff0000;color:white">red</option><option value="#ee8800" style="background-color:#ee8800;color:white">orange</option><option value="#ffcc00" style="background-color:#ffcc00;color:white">yellow</option><option value="#33cc33" style="background-color:#33cc33;color:white">green</option><option value="#3399ff" style="background-color:#3399ff;color:white">blue</option><option value="#9900ff" style="background-color:#9900ff;color:white">purple</option><option value="#000000" style="background-color:#000000;color:white">black</option><option value="#ffffff" selected>cartoon</option></select></p>
 <p>Pants color: <select id="pants-color"><option value="#ff0000" style="background-color:#ff0000;color:white">red</option><option value="#ee8800" style="background-color:#ee8800;color:white">orange</option><option value="#ffcc00" style="background-color:#ffcc00;color:white">yellow</option><option value="#33cc33" style="background-color:#33cc33;color:white">green</option><option value="#3399ff" style="background-color:#3399ff;color:white">blue</option><option value="#9900ff" style="background-color:#9900ff;color:white">purple</option><option value="#000000" style="background-color:#000000;color:white">black</option><option value="#ffffff" selected>cartoon</option></select></p>
 <p>Skin color: <select id="skin-color"><option value="#663300" style="background-color:#663300;color:white">very dark</option><option value="#804313" style="background-color:#804313;color:white">dark</option><option value="#c97a4f" style="background-color:#c97a4f;color:white">middle</option><option value="#daa78b" style="background-color:#daa78b;color:white">light</option><option value="#e7c4b1" style="background-color:#e7c4b1;color:white">very light</option><option value="#ffffff" selected>cartoon</option></select></p>
+<p>Shoe color: <select id="shoe-color"><option value="black" style="background-color:black;color:white">black</option><option value="grey" style="background-color:grey;color:white">grey</option><option value="brown" style="background-color:brown;color:white">brown</option><option value="#ffffff" selected>cartoon</option></select></p>
 <p><b>Note:</b> I think it looks good if all the main characters have colors to help readers indentify them, but keep less important charachters white.</p>
-<button>Add asset!</button>
+<button onclick="createPerson()">Add asset!</button>
 <button onclick="location.reload();">Start Over</button>
+  <script>
+    function trimSvg(svg){return svg.slice((svg.indexOf("path") - 1),(svg.length - 6));}
+    function createPerson(){
+    fetch("../assets/hair/" + document.getElementById('hair').value + ".svg").then(function (r){return r.text()}).then(function (r){
+    var hairSvg = trimSvg(r);
+        fetch("../assets/body/" + document.getElementById('height').value + ".svg").then(function (r){return r.text()}).then(function (r){
+    var bodySvg = trimSvg(r);
+        fetch("../assets/face/happy.svg").then(function (r){return r.text()}).then(function (r){
+    var faceSvg = trimSvg(r);
+    console.log("SVGs loaded!");
+    bodySvg = bodySvg.replace("none",document.getElementById("skin-color").value);
+    bodySvg = bodySvg.replace("none",document.getElementById("shirt-color").value);
+    bodySvg = bodySvg.replace("none",document.getElementById("pants-color").value);
+    bodySvg = bodySvg.replace("none",document.getElementById("shoe-color").value);
+    bodySvg = bodySvg.replace("none",document.getElementById("shoe-color").value);
+    bodySvg = bodySvg.replace("none",document.getElementById("skin-color").value);
+    bodySvg = bodySvg.replace("none",document.getElementById("skin-color").value);
+    console.log("Colors added!");
+    hairSvg = '<foreignObject width="85" height="75" x="12" y="0">' + hairSvg + '</foreignObject>';
+    bodySvg = '<foreignObject width="100" height="180" x="0" y="0">' + bodySvg + '</foreignObject>';
+    faceSvg = '<foreignObject width="40" height="35" x="12" y="15" id="face">' + faceSvg + '</foreignObject>';
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="180">' + bodySvg + hairSvg + faceSvg + "</svg>";
+    svg = btoa(svg);
+    window.parent.postMessage("person|data:image/svg+xml;base64,"+svg+"|happy", "https://kyleplo.github.io");
+    })
+    })
+    })
+    }
+  </script>
 </body>
 </html>
