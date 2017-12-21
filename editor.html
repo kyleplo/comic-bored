@@ -59,7 +59,7 @@ svg += "<line x1='0' y1='" + ((i + 1) * 300) + "' x2='" + (w * 300) + "' y2='" +
 svg += "</svg>";
 return "data:image/svg+xml;base64," + btoa(svg);
 }
-function trimSvg(svg){return svg.slice((svg.indexOf("path") - 1),(svg.length - 5));}
+function trimSvg(svg){return svg.slice((svg.indexOf("path") - 1),(svg.length - 6));}
 function chooseMenu(menu){
 document.getElementById('person').setAttribute("hidden","hidden");
 document.getElementById('obj').setAttribute("hidden","hidden");
