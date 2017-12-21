@@ -31,7 +31,7 @@
 <a href="./create/bg.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create background</button></a>
 <a href="./create/obj.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Add object</button></a>
 <a href="./create/upload.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Upload asset</button></a>
-  <button onclick="document.getElementById('editor').innerHTML += '<p class=editImg>Caption text (edit in properties)...</p>';comic.push({x:0,y:0,type:'caption',caption:''});">Add caption/speech box</button>
+  <button onclick="document.getElementById('editor').innerHTML += '<p class=editImg data-type=caption style=position:absolute;top:200px;left:0px>Caption text (edit in properties)...</p>';comic.push({x:0,y:0,type:'caption',caption:''});">Add caption/speech box</button>
   <button onclick="localStorage.assets = '';document.getElementById('assets').innerHTML = '';">Delete All Assets</button>
 <div id="assets">
 </div></div>
