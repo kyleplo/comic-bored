@@ -106,12 +106,6 @@ selected = event.target.getAttribute("data-num");
 console.log("Item selected");
 } );
   }
-  function addCaption(type,text){
-  var cap = document.getElementById("editor").children[(selected + 1)];
-  var svg = cap.atob();
-    svg = svg.slice(0,svg.length - 6);
-  console.log("Editing caption");
-  if(svg.indexOf("text") > 0){svg = svg.slice(0,svg.indexOf("<text")) + svg.slice(svg.lastIndexOf("<text"),(svg.length - 1));if(text.length > 0){if(type === bg){svg += '<text x="5" y="255">' + text + '</text>'}else{svg += '<text x="5" y="135">' + text + '</text>'}}else{if(text.length > 0){if(type === bg){svg += '<rect x="0" y="250" height="50" width="300" style="fill:white;stroke:black;stroke-width:2" /><text x="5" y="255">' + text + '</text>'}else{svg += '<rect x="0" y="130" height="50" width="100" style="fill:white;stroke:black;stroke-width:2" /><text x="5" y="135">' + text + '</text>'}}}};
 </script>
 </body>
 </html>
