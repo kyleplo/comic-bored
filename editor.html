@@ -49,14 +49,14 @@ interact(document.getElementsByClassName('editImg')[document.getElementsByClassN
 restrict: {
       restriction: "parent",
       endOnly: true,
-      elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }},
       onmove: dragMoveListener,
   onend: function (event){comic[event.target.getAttribute("data-num")].x = event.pageX;comic[event.target.getAttribute("data-num")].y = event.pageY;},
 ontap: function (event){
 chooseMenu(event.target.getAttribute("data-type"));
 selected = event.target.getAttribute("data-num");
 console.log("Item selected");
-}  }
+}  
 });
 });
 };
