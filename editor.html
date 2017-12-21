@@ -4,7 +4,7 @@
 <div style="position:fixed;top:0px;left:0px;width:73%;height:177px;overflow-y:scroll;border-bottom:solid 1px black">
 <div id="person" hidden>
 <h3>Person</h3>
-<p>There aren't any object properties... <i>(yet)</i></p>
+<p>There aren't any person properties... <i>(yet)</i></p>
 </div>
 <div id="obj" hidden>
 <h3>Object</h3>
@@ -12,11 +12,11 @@
 </div>
 <div id="bg" hidden>
 <h3>Background</h3>
-<p>There aren't any object properties... <i>(yet)</i></p>
+<p>There aren't any background properties... <i>(yet)</i></p>
 </div>
 <div id="caption" hidden>
 <h3>Caption</h3>
-<p>Text: <input type="text" onchange="document.getElementsByClassName('editImg')[selected].innerHTML = this.value;comic[selected].caption = this.value"></p>
+<p>Text: <input type="text" placeholder="Enter the text..." onchange="document.getElementsByClassName('editImg')[selected].innerHTML = this.value;comic[selected].caption = this.value"></p>
 </div>
 <div id="comic">
 <h3>Comic</h3>
