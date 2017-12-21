@@ -41,7 +41,7 @@ window.addEventListener("load",function (){
 if(localStorage.assets){
 var assets = localStorage.assets.split("^");
 for(var i = 0;i < assets.length;i++){
-document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "'><br>";
+document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "'>";
 document.getElementById("assets").children[document.getElementById("assets").children.length - 1].addEventListener("click",function (e){
 document.getElementById("editor").innerHTML += "<img style='position:fixed;top:200px;left:0px' src='" + e.target.src + "' data-type='" + e.target.getAttribute('data-type') + "' data-face='" + e.target.getAttribute('data-face') + "' class='editImg' data-num='" + comic.length + "'>";
 comic.push({x: 0,y: 0,src: assets[i].split("|")[1],type: assets[i].split("|")[0], face:assets[i].split("|")[2],caption: ""});
@@ -59,7 +59,7 @@ console.log("Item selected");
 });
 window.addEventListener("message",function (e){
 document.getElementById('add').setAttribute("hidden","hidden");
-document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "'><br>";
+document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "'>";
 if(localStorage.assets.length > 0){localStorage.assets += "^" + e.data}else{localStorage.assets += e.data};
 });
 function getGridSvg(w,h){
