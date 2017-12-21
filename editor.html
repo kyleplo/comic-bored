@@ -48,7 +48,7 @@ document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|
 });
 window.addEventListener("message",function (e){
 document.getElementById('add').setAttribute("hidden","hidden");
-document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "'>";
+document.getElementById("assets").innerHTML += "<img src='" + e.data.split("|")[1] + "' data-type='" + e.data.split("|")[0] + "' data-face='" + e.data.split("|")[2] + "' onclick='assetClick()'>";
 if(localStorage.assets.length > 0){localStorage.assets += "^" + e.data}else{localStorage.assets += e.data};
 });
 function getGridSvg(w,h){
@@ -89,7 +89,10 @@ document.getElementById(menu).removeAttribute("hidden");
   function assetClick(e){
 document.getElementById("editor").innerHTML += "<img style='position:absolute;top:200px;left:0px' src='" + e.target.src + "' data-type='" + e.target.getAttribute('data-type') + "' data-face='" + e.target.getAttribute('data-face') + "' class='editImg' data-num='" + comic.length + "'>";
 comic.push({x: 0,y: 0,src: e.target.src,type: e.target.getAttribute("data-type"), face:e.target.getAttribute("data-face"),caption: ""});
-interact(document.getElementsByClassName('editImg')[document.getElementsByClassName("editImg").length - 1]).draggable({
+updateInteract();
+}
+  function updateInteract(){
+  interact(document.getElementsByClassName('editImg')).draggable({
 restrict: {
       restriction: "parent",
       endOnly: true,
@@ -102,7 +105,7 @@ chooseMenu(event.target.getAttribute("data-type"));
 selected = event.target.getAttribute("data-num");
 console.log("Item selected");
 } );
-}
+  }
 </script>
 </body>
 </html>
