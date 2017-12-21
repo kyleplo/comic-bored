@@ -4,8 +4,8 @@
 <div style="position:fixed;top:0px;left:0px;width:73%;height:177px;overflow-y:scroll;border-bottom:solid 1px black">
 <div id="person" hidden>
 <h3>Person</h3>
-<p>Speech: <input type="text" id="speech" placeholder="What should I say?"></p>
-<p>Expression: <select id="expression"><option value="happy">happy :-)</option><option value="normal">normal :-|</option><option value="sad">sad :-(</option><option value="toothy">toothy smile :-D</option><option value="angry">angry #-(</option><option value="sleep">sleep ;-|</option></select></p>
+<p>Speech: <input type="text" id="speech" placeholder="What should I say?" onchange="comic[selected].caption = this.value"></p>
+<p>Expression: <select id="expression" onchange="comic[selected].face = this.value"><option value="happy">happy :-)</option><option value="normal">normal :-|</option><option value="sad">sad :-(</option><option value="toothy">toothy smile :-D</option><option value="angry">angry #-(</option><option value="sleep">sleep ;-|</option></select></p>
 </div>
 <div id="obj" hidden>
 <h3>Object</h3>
@@ -13,7 +13,7 @@
 </div>
 <div id="bg" hidden>
 <h3>Background</h3>
-<p>Caption: <input type="text" id="caption" placeholder="What is going on?"></p>
+<p>Caption: <input type="text" id="caption" placeholder="What is going on?" onchange="comic[selected].caption = this.value"></p>
 </div>
 <div id="comic">
 <h3>Comic</h3>
@@ -31,16 +31,31 @@
   <button onclick="localStorage.assets = '';document.getElementById('assets').innerHTML = '';">Delete All Assets</button>
 <div id="assets">
 </div></div>
-  <div id="editor" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 190px);overflow:scroll"><img onclick="chooseMenu('comic');" id="gridSvg" src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHdpZHRoPScxMjAwJyBoZWlnaHQ9JzYwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjAwJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzQnIGZpbGw9J3doaXRlJyAvPjxsaW5lIHgxPSczMDAnIHkxPScwJyB4Mj0nMzAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc2MDAnIHkxPScwJyB4Mj0nNjAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc5MDAnIHkxPScwJyB4Mj0nOTAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPScwJyB5MT0nMzAwJyB4Mj0nMTIwMCcgeTI9JzMwMCcgc3R5bGU9J3N0cm9rZTpibGFjaztzdHJva2Utd2lkdGg6NCcgLz48L3N2Zz4="></div>
+  <div id="editor" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 190px);overflow:scroll"><img onclick="chooseMenu('comic');selected = 'comic'" id="gridSvg" src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHdpZHRoPScxMjAwJyBoZWlnaHQ9JzYwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjAwJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzQnIGZpbGw9J3doaXRlJyAvPjxsaW5lIHgxPSczMDAnIHkxPScwJyB4Mj0nMzAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc2MDAnIHkxPScwJyB4Mj0nNjAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc5MDAnIHkxPScwJyB4Mj0nOTAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPScwJyB5MT0nMzAwJyB4Mj0nMTIwMCcgeTI9JzMwMCcgc3R5bGU9J3N0cm9rZTpibGFjaztzdHJva2Utd2lkdGg6NCcgLz48L3N2Zz4="></div>
 <iframe id="add" name="addAsset" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 200px);border:none" hidden></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
 <script>
+var comic = [];
+var selected = "comic";
 window.addEventListener("load",function (){
 if(localStorage.assets){
 var assets = localStorage.assets.split("^");
 for(var i = 0;i < assets.length;i++){
 document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "'><br>";
-}}else{localStorage.assets = ""}
+document.getElementById("assets").children[document.getElementById("assets").children.length - 1].addEventListener("click",function (e){
+document.getElementById("editor").innerHTML += "<img style='position:fixed;top:200px;left:0px' src='" + e.target.src + "' data-type='" + e.target.getAttribute('data-type') + "' data-face='" + e.target.getAttribute('data-face') + "' class='editImg' data-num='" + comic.length + "'>";
+comic.push({x: 0,y: 0,src: assets[i].split("|")[1],type: assets[i].split("|")[0], face:assets[i].split("|")[2],caption: ""});
+interact(document.getElementsByClassName('editImg')[document.getElementsByClassName("editImg").length - 1]).draggable({
+onend: function (event){comic[event.target.getAttribute("data-num")].x = event.pageX;comic[event.target.getAttribute("data-num")].y = event.pageY;},
+ontap: function (event){
+chooseMenu(event.target.getAttribute("data-type"));
+selected = event.target.getAttribute("data-num");
+console.log("Item selected");
+}  
+});
+});
+};
+}else{localStorage.assets = ""}
 });
 window.addEventListener("message",function (e){
 document.getElementById('add').setAttribute("hidden","hidden");
@@ -67,6 +82,7 @@ document.getElementById('bg').setAttribute("hidden","hidden");
 document.getElementById('comic').setAttribute("hidden","hidden");
 document.getElementById(menu).removeAttribute("hidden");
 }
+
 </script>
 </body>
 </html>
