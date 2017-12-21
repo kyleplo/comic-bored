@@ -28,8 +28,9 @@
 <a href="./create/bg.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create background</button></a>
 <a href="./create/obj.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Add object</button></a>
 <a href="./create/upload.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Upload asset</button></a>
-<ul id="assets">
-</ul></div>
+  <button onclick="localStorage.assets = '';document.getElementById('assets').innerHTML = '';">Delete All Assets</button>
+<div id="assets">
+</div></div>
   <div id="editor" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 190px);overflow:scroll"><img id="gridSvg" src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHdpZHRoPScxMjAwJyBoZWlnaHQ9JzYwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjAwJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzQnIGZpbGw9J3doaXRlJyAvPjxsaW5lIHgxPSczMDAnIHkxPScwJyB4Mj0nMzAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc2MDAnIHkxPScwJyB4Mj0nNjAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc5MDAnIHkxPScwJyB4Mj0nOTAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPScwJyB5MT0nMzAwJyB4Mj0nMTIwMCcgeTI9JzMwMCcgc3R5bGU9J3N0cm9rZTpibGFjaztzdHJva2Utd2lkdGg6NCcgLz48L3N2Zz4="></div>
 <iframe id="add" name="addAsset" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 200px);border:none" hidden></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
