@@ -41,8 +41,7 @@ window.addEventListener("load",function (){
 if(localStorage.assets){
 var assets = localStorage.assets.split("^");
 for(var i = 0;i < assets.length;i++){
-document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "'>";
-document.getElementById("assets").children[document.getElementById("assets").children.length - 1].addEventListener("click",assetClick);
+document.getElementById("assets").innerHTML += "<img src='" + assets[i].split("|")[1] + "' data-type='" + assets[i].split("|")[0] + "' data-face='" + assets[i].split("|")[2] + "' onclick='assetClick(event)'>";
   console.log("Event added!");
 };
 }else{localStorage.assets = ""}
@@ -97,13 +96,12 @@ restrict: {
       elementRect: { top: 0, left: 0, bottom: 1, right: 1 }},
       onmove: dragMoveListener,
   onend: function (event){console.log("Dragged");comic[event.target.getAttribute("data-num")].x = event.pageX;comic[event.target.getAttribute("data-num")].y = (event.pageY - 200);},
-ontap: function (event){
+}).on("tap",function (event){
   console.log("Click/tapped!!");
 chooseMenu(event.target.getAttribute("data-type"));
 selected = event.target.getAttribute("data-num");
 console.log("Item selected");
-}  
-});
+} );
 }
 </script>
 </body>
