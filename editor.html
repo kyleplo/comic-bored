@@ -1,5 +1,5 @@
 <!DOCTYPE html><html>
-<head><title>ComicBored</title><link rel="stylesheet" href="./style.css"></head>
+<head><title>ComicBored</title><link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></head>
 <body>
 <div style="position:fixed;top:0px;left:0px;width:73%;height:177px;overflow-y:scroll;border-bottom:solid 1px black">
 <div id="person" hidden>
@@ -26,16 +26,16 @@
 </div>
 </div>
 <div style="position:fixed;top:0px;right:0px;width:25%;border-left:solid 1px black;height:99%;overflow-y:scroll">
-<h3>My Assets</h3>
-<a href="./create/person.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create person</button></a>
-<a href="./create/bg.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Create background</button></a>
-<a href="./create/obj.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Add object</button></a>
-<a href="./create/upload.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')"><button>Upload asset</button></a>
-  <button onclick="document.getElementById('editor').innerHTML += '<p class=editImg data-num=' + comic.length + ' data-type=caption style=position:absolute;top:200px;left:0px>Caption text (edit in properties)...</p>';comic.push({x:0,y:0,type:'caption',caption:''});">Add caption/speech box</button>
+  <h3>My Assets</h3><h5>Add:</h5><p>
+<a href="./create/person.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')" class="material-icons">person_add</a> 
+<a href="./create/bg.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')" class="material-icons">local_florist</a> 
+<a href="./create/obj.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')" class="material-icons">cake</a> 
+<a href="./create/upload.html" target="addAsset" onclick="document.getElementById('add').removeAttribute('hidden')" class="material-icons">file_upload</a> 
+  <a onclick="document.getElementById('editor').innerHTML += '<p class=editImg data-num=' + comic.length + ' data-type=caption style=position:absolute;top:200px;left:0px>Caption text (edit in properties)...</p>';comic.push({x:0,y:0,type:'caption',caption:''});" class="material-icons" href="#">textsms</a></p>
   <button onclick="localStorage.assets = '';document.getElementById('assets').innerHTML = '';">Delete All Assets</button>
 <div id="assets">
 </div></div>
-  <div id="editor" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 190px);overflow:scroll"><img onclick="chooseMenu('comic');selected = 'comic'" id="gridSvg" src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHdpZHRoPScxMjAwJyBoZWlnaHQ9JzYwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjAwJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzQnIGZpbGw9J3doaXRlJyAvPjxsaW5lIHgxPSczMDAnIHkxPScwJyB4Mj0nMzAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc2MDAnIHkxPScwJyB4Mj0nNjAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc5MDAnIHkxPScwJyB4Mj0nOTAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPScwJyB5MT0nMzAwJyB4Mj0nMTIwMCcgeTI9JzMwMCcgc3R5bGU9J3N0cm9rZTpibGFjaztzdHJva2Utd2lkdGg6NCcgLz48L3N2Zz4="></div>
+  <div id="editor" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 190px);overflow:scroll"><img onclick="chooseMenu('comic');selected = 'comic'" style="position:absolute;z-index:1000" id="gridSvg" src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPScxLjEnIHdpZHRoPScxMjAwJyBoZWlnaHQ9JzYwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nNjAwJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzQnIGZpbGw9J3doaXRlJyAvPjxsaW5lIHgxPSczMDAnIHkxPScwJyB4Mj0nMzAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc2MDAnIHkxPScwJyB4Mj0nNjAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPSc5MDAnIHkxPScwJyB4Mj0nOTAwJyB5Mj0nNjAwJyBzdHlsZT0nc3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo0JyAvPjxsaW5lIHgxPScwJyB5MT0nMzAwJyB4Mj0nMTIwMCcgeTI9JzMwMCcgc3R5bGU9J3N0cm9rZTpibGFjaztzdHJva2Utd2lkdGg6NCcgLz48L3N2Zz4="></div>
 <iframe id="add" name="addAsset" style="position:fixed;top:190px;left:0px;width:73%;height:calc(100% - 200px);border:none" hidden></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
 <script>
