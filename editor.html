@@ -117,8 +117,9 @@ console.log("Item selected");
   }
   function trash(){if(confirm("Are you sure you want to delete this?")){
   comic[selected].existing = false;
-    // Credit to @t-j-crowder on Stackoverflow for element deleting code.
-  document.getElementsByClassName("editImg")[selected].parentNode.removeChild(document.getElementsByClassName("editImg")[selected]);
+  document.getElementsByClassName("editImg")[selected].innerHTML = "";
+      document.getElementsByClassName("editImg")[selected].src = "";
+      document.getElementsByClassName("editImg")[selected].setAttribute("hidden","hidden");
     chooseMenu("comic");
     selected = "comic"
   }
