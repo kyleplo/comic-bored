@@ -130,15 +130,18 @@ console.log("Item selected");
     for(var i = 0;i < comic.length;i++){
     if(comic[i].existing){
     if(comic[i].type === "caption"){
-    svg += 
+    svg += '<rect width="' + (comic[i].caption.length * 8) + '" height="32" x="' + comic[i].x + '" y="' + comic[i].y + '" fill="white" stroke="black" stroke-width="2" /><text x="' + (comic[i].x + 3) + '" y="' + (comic[i].y + 20) + '" fill="black" style="font-family:Arial">' + comic[i].caption + '</text>'
     }else{
     svg += '<g transform="translate(' + comic[i].x + ',' + comic[i].y + ')">'+(trimSvg(atob(comic[i].src.slice(comic[i].src.indexOf(",") + 1)))) + "</g>";
     }
     }
     };
+      var gridSvg = getGridSvg(parseFloat(document.getElementById('width').value),parseFloat(document.getElementById('height').value));
   svg += "</svg>";
+      (trimSvg(atob(gridSvg.slice(gridSvg.indexOf(",") + 1))))
     localStorage.comic = svg;
-    location.href="./create/comic.html"
+      localStorage.comicTitle = document.getElementById("title").value;
+    location.href="./create/comic.html";
   }
 </script>
 </body>
