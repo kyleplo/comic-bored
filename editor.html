@@ -27,6 +27,7 @@
 <p>Title: <input type="text" id="title" placeholder="Name your comic!!"></p>
 <p>Width (in panels): <select id="width" onchange="document.getElementById('gridSvg').src = getGridSvg(parseFloat(this.value),parseFloat(document.getElementById('height').value))"><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select></p>
 <p>Height (in panels): <select id="height" onchange="document.getElementById('gridSvg').src = getGridSvg(parseFloat(document.getElementById('width').value),parseFloat(this.value))"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></p>
+  <button onclick="generate()">Generate comic</button>
 </div>
 </div>
 <div style="position:fixed;top:0px;right:0px;width:25%;border-left:solid 1px black;height:99%;overflow-y:scroll">
@@ -71,7 +72,7 @@ svg += "<line x1='0' y1='" + ((i + 1) * 300) + "' x2='" + (w * 300) + "' y2='" +
 svg += "</svg>";
 return "data:image/svg+xml;base64," + btoa(svg);
 }
-function trimSvg(svg){return svg.slice((svg.indexOf("path") - 1),(svg.length - 6));}
+function trimSvg(svg){return svg.slice((svg.slice(1).indexOf("<") + 1),(svg.length - 6));}
 function chooseMenu(menu){
 document.getElementById('person').setAttribute("hidden","hidden");
 document.getElementById('obj').setAttribute("hidden","hidden");
@@ -123,6 +124,21 @@ console.log("Item selected");
     chooseMenu("comic");
     selected = "comic"
   }
+  }
+  function generate(){
+  var svg = "<svg width='" + (parseFloat(document.getElementById('width').value) * 300) + "' height='" + (parseFloat(document.getElementById('height').value) * 300) + "'>";
+    for(var i = 0;i < comic.length;i++){
+    if(comic[i].existing){
+    if(comic[i].type === "caption"){
+    svg += 
+    }else{
+    svg += '<g transform="translate(' + comic[i].x + ',' + comic[i].y + ')">'+(trimSvg(atob(comic[i].src.slice(comic[i].src.indexOf(",") + 1)))) + "</g>";
+    }
+    }
+    };
+  svg += "</svg>";
+    localStorage.comic = svg;
+    location.href="./create/comic.html"
   }
 </script>
 </body>
