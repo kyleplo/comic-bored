@@ -137,8 +137,8 @@ console.log("Item selected");
     }
     };
       var gridSvg = getGridSvg(parseFloat(document.getElementById('width').value),parseFloat(document.getElementById('height').value));
+    svg += trimSvg(atob(gridSvg.slice(gridSvg.indexOf(",") + 1)));
   svg += "</svg>";
-      (trimSvg(atob(gridSvg.slice(gridSvg.indexOf(",") + 1))))
     localStorage.comic = svg;
       localStorage.comicTitle = document.getElementById("title").value;
     location.href="./create/comic.html";
