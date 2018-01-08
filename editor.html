@@ -132,12 +132,12 @@ console.log("Item selected");
     if(comic[i].type === "caption"){
     svg += '<rect width="' + (comic[i].caption.length * 8) + '" height="32" x="' + comic[i].x + '" y="' + comic[i].y + '" fill="white" stroke="black" stroke-width="2" /><text x="' + (comic[i].x + 3) + '" y="' + (comic[i].y + 20) + '" fill="black" style="font-family:Arial">' + comic[i].caption + '</text>'
     }else{
-    svg += '<g transform="translate(' + comic[i].x + ',' + comic[i].y + ')">'+(trimSvg(atob(comic[i].src.slice(comic[i].src.indexOf(",") + 1)))) + "</g>";
+    svg += '<g transform="translate(' + comic[i].x + ',' + comic[i].y + ')">'+(trimSvg(btoa(comic[i].src.slice(comic[i].src.indexOf(",") + 1)))) + "</g>";
     }
     }
     };
       var gridSvg = getGridSvg(parseFloat(document.getElementById('width').value),parseFloat(document.getElementById('height').value));
-    svg += trimSvg(atob(gridSvg.slice(gridSvg.indexOf(",") + 1)));
+    svg += trimSvg(btoa(gridSvg.slice(gridSvg.indexOf(",") + 1)));
   svg += "</svg>";
     localStorage.comic = svg;
       localStorage.comicTitle = document.getElementById("title").value;
