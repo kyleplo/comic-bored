@@ -130,9 +130,9 @@ console.log("Item selected");
     for(var i = 0;i < comic.length;i++){
     if(comic[i].existing){
     if(comic[i].type === "caption"){
-    svg += '<rect width="' + (comic[i].caption.length * 8) + '" height="32" x="' + comic[i].x + '" y="' + comic[i].y + '" fill="white" stroke="black" stroke-width="2" /><text x="' + (comic[i].x + 3) + '" y="' + (comic[i].y + 20) + '" fill="black" style="font-family:Arial">' + comic[i].caption + '</text>'
+    svg += '<rect width="' + (comic[i].caption.length * 8) + '" height="32" x="' + comic[i].x + '" y="' + comic[i].y + '" fill="white" stroke="black" stroke-width="2" /><text x="' + (comic[i].x + 3) + '" y="' + (comic[i].y + 20) + '" fill="black" style="font-family:Arial">' + comic[i].caption + '</text>';
     }else{
-    svg += '<g transform="translate(' + comic[i].x + ',' + comic[i].y + ')">'+(trimSvg(atob(comic[i].src.slice(comic[i].src.indexOf(",") + 1)))) + "</g>";
+    svg += '<g transform="translate(' + (comic[i].x - 200) + ',' + (comic[i].y - 200) + ')">'+(trimSvg(atob(comic[i].src.slice(comic[i].src.indexOf(",") + 1)))) + "</g>";
     }
     }
     };
