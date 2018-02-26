@@ -89,16 +89,16 @@ document.getElementById(menu).removeAttribute("hidden");
 
     // translate the element
     target.style.webkitTransform =
-    target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)';
+    target.style.top = x;
+    target.style.left = y;
 
     // update the posiion attributes
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
   }
   function assetClick(e){
-document.getElementById("editor").innerHTML += "<img style='position:absolute;top:200px;left:0px' src='" + e.target.src + "' data-type='" + e.target.getAttribute('data-type') + "' data-face='" + e.target.getAttribute('data-face') + "' class='editImg' data-num='" + comic.length + "'>";
-comic.push({x: 0,y: 0,src: e.target.src,type: e.target.getAttribute("data-type"), face:e.target.getAttribute("data-face"),caption: "",existing:true});
+document.getElementById("editor").innerHTML += "<img style='position:absolute;top:400px;left:200px' src='" + e.target.src + "' data-type='" + e.target.getAttribute('data-type') + "' data-face='" + e.target.getAttribute('data-face') + "' class='editImg' data-num='" + comic.length + "'>";
+comic.push({x: 200,y: 200,src: e.target.src,type: e.target.getAttribute("data-type"), face:e.target.getAttribute("data-face"),caption: "",existing:true});
 updateInteract();
 }
   function updateInteract(){
